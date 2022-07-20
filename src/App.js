@@ -1,21 +1,15 @@
-import { useEffect } from 'react';
-import './App.css';
-import {useDispatch} from 'react-redux';
-import { GET_CARDS } from './Store/types/cardsTypes';
+import React from "react";
+import "./App.css";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Cards from "./Containers/Cards";
 
 function App() {
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch({
-      type: GET_CARDS
-    });
-  }, []);
-
   return (
     <div className="App">
-      
+      <Header />
+      <Cards />
+      <Footer />
     </div>
   );
 }

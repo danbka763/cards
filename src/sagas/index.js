@@ -1,8 +1,6 @@
-import {all} from 'redux-saga/effects';
-import { cardsWather } from './cardsWatcher';
+import { all } from "redux-saga/effects";
+import { cardsWather } from "./cardsWatcher";
 
 export default function* rootWatcher() {
-  yield all([
-    cardsWather()
-  ]);
+  yield all([cardsWather()]);
 }

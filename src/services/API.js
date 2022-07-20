@@ -1,9 +1,9 @@
-const BASE_URL = "http://contest.elecard.ru/frontend_data/"
+export const BASE_URL = "http://contest.elecard.ru/frontend_data/";
 
-export const GET = async path => {
+export const GET = async (path) => {
   try {
     const response = await fetch(BASE_URL + path, {
-      method: 'GET',
+      method: "GET",
     });
     const data = await response.json();
     return data;

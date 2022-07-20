@@ -4,9 +4,9 @@ export const getCards = () => ({
   type: GET_CARDS
 });
 
-export const getCardsSucceeded = payload => ({
+export const getCardsSucceeded = cards => ({
   type: GET_CARDS_SUCCEEDED,
-  ...payload,
+  cards,
 });
 
 export const getCardsError = payload => ({
