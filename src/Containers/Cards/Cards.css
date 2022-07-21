@@ -9,3 +9,31 @@ div.collection {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+div.pagination {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none; 
+}
+
+div.pagination>span {
+  display: inline;
+  padding: 15px 7px;
+}
+
+div.pagination>div {
+  display: inline-block;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px; height: 30px;
+  margin: 0 7px;
+  cursor: pointer;
+}

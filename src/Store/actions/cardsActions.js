@@ -1,4 +1,4 @@
-import { GET_CARDS, GET_CARDS_ERROR, GET_CARDS_SUCCEEDED } from "../types/cardsTypes";
+import { DELETE_CARD, GET_CARDS, GET_CARDS_ERROR, GET_CARDS_SUCCEEDED } from "../types/cardsTypes";
 
 export const getCards = () => ({
   type: GET_CARDS
@@ -9,7 +9,12 @@ export const getCardsSucceeded = cards => ({
   cards,
 });
 
-export const getCardsError = payload => ({
+export const getCardsError = err => ({
   type: GET_CARDS_ERROR,
-  ...payload,
+  ...err,
 });
+
+export const deleteCard = card => ({
+  type: DELETE_CARD,
+  card
+})

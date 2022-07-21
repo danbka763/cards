@@ -6,7 +6,12 @@ div.card {
 }
 
 div.card>div.content {
-  padding: 27px 7px 27px;
+  padding: 7px;
+  cursor: pointer;
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
 }
 
 div.card>div.content div.img_container {
@@ -25,4 +30,45 @@ div.card>div.content img {
 
 h4, p {
   margin: 0;
+}
+
+div.card>div.top_card {
+  display: flex;
+  padding: 7px 7px 0;
+  justify-content: flex-end;
+  font-size: 10px;
+}
+
+div.card>div.top_card>div.delete_card {
+  cursor: pointer;
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+div.modal {
+  height: 100vh; width: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0; left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+div.modal>img {
+  border-radius: 9px;
+  padding: 0;
+  background-color: white;
+  overflow: hidden;
+  cursor: default;
+}
+
+div.modal>span {
+  position: absolute;
+  font-size: 40px;
+  color: rgb(202, 202, 202);
+  top: 25px; right: 50px;
 }
