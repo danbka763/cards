@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { getDate } from "../../helpers/date";
 import { BASE_URL } from "../../services/API";
 import CModalImage from "../../ui-kit/CModalImage";
 import './Card.css'
 
 const Card = props => {
-  const { image, category, deleteCardAction } = props
+  const { image, category, deleteCardAction, timestamp } = props
 
   const [modal, handleModal] = useState(false)
 
@@ -25,10 +26,12 @@ const Card = props => {
         <div className="img_container">
           <img src={`${BASE_URL}${image}`} alt={image} />
         </div>
-        <h4>name</h4>
+        <h4>Name</h4>
         <p className="name">{name}</p>
-        <h4>category</h4>
+        <h4>Category</h4>
         <p>{category}</p>
+        <h4>Date</h4>
+        <p>{getDate(timestamp)}</p>
       </div>
       {modal && <CModalImage image={image} handleModal={handleModal} />}
     </div>

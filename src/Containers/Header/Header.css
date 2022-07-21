@@ -1,0 +1,45 @@
+header {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100%; height: 45px;
+  background-color: rgb(56, 56, 56);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header>div.container-button, header>div.container-sort {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 45px;
+}
+
+header>div.container-button button,
+header>div.container-sort>div.sort {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+header>div.container-button button {
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 50px;
+  background-color: rgb(56, 56, 56);
+  color: white;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+header>div.container-button button:disabled {
+  cursor: default;
+}
+
+header>div.container-sort>div.sort,
+header>div.container-sort input {
+  cursor: pointer;
+}
+
+header>div.container-sort>div.sort {
+  margin-left: 15px;
+}
