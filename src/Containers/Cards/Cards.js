@@ -22,8 +22,6 @@ const CardsCollectionGraphic = ({
     }
   }
 
-  console.log(cards);
-
   return cards.map((card, i) => (
     <Card key={i} {...card} deleteCardAction={deleteCardAction} />
   ));
@@ -34,8 +32,6 @@ const CardsCollectionTree = ({ cards, deleteCardAction, categories, sort }) => {
 
   categories.map((category) => (categoriesObj[category] = []));
   cards.map((card) => categoriesObj[card.category].push(card));
-
-  console.log(categoriesObj);
 
   return (
     <CardsTree
@@ -89,9 +85,6 @@ const Cards = (props) => {
     editPage(pages);
   }
 
-  console.log("page", page);
-
-  console.log(cardsData);
   return (
     <main>
       <div className={`collection ${!cardsData.graphic && "tree"}`}>

@@ -9,7 +9,7 @@ const SortDropDown = (props) => {
     <ul>
       <li onClick={() => changeCheck(!check)}>
         Сортировать по
-        <i class={`arrow ${check ? "down" : "right"}`} />
+        <i className={`arrow ${check ? "down" : "right"}`} />
       </li>
       {check && (
         <ul className="container-drop">

@@ -100,7 +100,6 @@ export const cardsReducer = (state = initialState, action) => {
       };
     }
     case CHANGE_VISIBLE_CARDS: {
-      console.log(action);
       return {
         ...state,
         graphic: action.visible,
