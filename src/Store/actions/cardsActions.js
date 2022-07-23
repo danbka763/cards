@@ -1,5 +1,6 @@
 import {
   CHANGE_SORT,
+  CHANGE_VISIBLE_CARDS,
   DELETE_CARD,
   GET_CARDS,
   GET_CARDS_ERROR,
@@ -33,4 +34,9 @@ export const undoDeleteCards = () => ({
 export const changeSort = (index) => ({
   type: CHANGE_SORT,
   index,
+});
+
+export const changeVisibleCards = (visible) => ({
+  type: CHANGE_VISIBLE_CARDS,
+  visible,
 });

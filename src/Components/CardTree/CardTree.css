@@ -1,0 +1,19 @@
+main ul.content {
+  border: none;
+  margin-left: 15px;
+}
+
+main ul.content>img {
+  height: 120px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+main ul.content>button.delete-item {
+  color: blue;
+  text-decoration: underline;
+  border: none;
+  padding: 0;
+  background-color: white;
+  cursor: pointer;
+}

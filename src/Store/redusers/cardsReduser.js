@@ -6,6 +6,7 @@ import {
 } from "../../helpers/localstorage";
 import {
   CHANGE_SORT,
+  CHANGE_VISIBLE_CARDS,
   DELETE_CARD,
   GET_CARDS,
   GET_CARDS_ERROR,
@@ -17,6 +18,7 @@ const initialState = {
   cards: [],
   categories: [],
   deleteCards: [],
+  graphic: true,
   sort: 0,
   isLoading: false,
   isError: false,
@@ -95,6 +97,13 @@ export const cardsReducer = (state = initialState, action) => {
         ...state,
         sort: action.index,
         cards: cardsSort(action.index, state.cards),
+      };
+    }
+    case CHANGE_VISIBLE_CARDS: {
+      console.log(action);
+      return {
+        ...state,
+        graphic: action.visible,
       };
     }
     default:

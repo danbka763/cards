@@ -1,29 +1,34 @@
 import React from "react";
 import { connect } from "react-redux";
-import { changeSort, undoDeleteCards } from "../../Store/actions/cardsActions";
+import Performance from "../../Components/Performance";
+import Sort from "../../Components/Sort";
+import {
+  changeSort,
+  changeVisibleCards,
+  undoDeleteCards,
+} from "../../Store/actions/cardsActions";
 import "./Header.css";
 
 const Header = (props) => {
-  const { undoDeleteCards, sort, changeSort, deleteCardsData } = props;
+  const {
+    undoDeleteCards,
+    sort,
+    changeSort,
+    deleteCardsData,
+    graphic,
+    changeVisible,
+  } = props;
+
+  const performance = (
+    <Performance graphic={graphic} changeVisible={changeVisible} />
+  );
 
   return (
     <header>
-      <div className="container-sort">
-        <p>Сортировать по: </p>
-        <div className="sort" onClick={() => changeSort(0)}>
-          <input type="radio" checked={sort === 0} /> Категории{" "}
-        </div>
-        <div className="sort" onClick={() => changeSort(1)}>
-          <input type="radio" checked={sort === 1} /> Дате{" "}
-        </div>
-        <div className="sort" onClick={() => changeSort(2)}>
-          <input type="radio" checked={sort === 2} /> Названию{" "}
-        </div>
-        <div className="sort" onClick={() => changeSort(3)}>
-          <input type="radio" checked={sort === 3} /> Размеру{" "}
-        </div>
-      </div>
+      <Sort sort={sort} changeSort={changeSort} />
+      {performance}
       <div className="container-button">
+        {performance}
         <button onClick={undoDeleteCards} disabled={!deleteCardsData.length}>
           Возврат к полному набору
         </button>
@@ -34,12 +39,14 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => ({
   deleteCardsData: state.cardsReducer.deleteCards,
+  graphic: state.cardsReducer.graphic,
   sort: state.cardsReducer.sort,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   undoDeleteCards: () => dispatch(undoDeleteCards()),
   changeSort: (index) => dispatch(changeSort(index)),
+  changeVisible: (visible) => dispatch(changeVisibleCards(visible)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

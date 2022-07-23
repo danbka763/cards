@@ -2,53 +2,119 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { animateScroll } from "react-scroll";
 import Card from "../../Components/Card";
+import CardsTree from "../../Components/CardsTree";
 import Pagination from "../../Components/Pagination";
 import { deleteCard, getCards } from "../../Store/actions/cardsActions";
 import "./Cards.css";
+import spinner from "../../assets/loaders/Spinner-5.gif";
 
-const CardsCollection = ({ cards, page, countItems, deleteCardAction }) => {
-  return cards
-    .slice(countItems * page, countItems * (page + 1))
-    .map((card, i) => (
-      <Card key={i} {...card} deleteCardAction={deleteCardAction} />
-    ));
+const CardsCollectionGraphic = ({
+  cards,
+  page,
+  countItems,
+  deleteCardAction,
+}) => {
+  cards = cards.slice(countItems * page, countItems * (page + 1));
+
+  if (cards.length < countItems) {
+    for (let i = cards.length; i < countItems; i++) {
+      cards.push({ empty: true });
+    }
+  }
+
+  console.log(cards);
+
+  return cards.map((card, i) => (
+    <Card key={i} {...card} deleteCardAction={deleteCardAction} />
+  ));
+};
+
+const CardsCollectionTree = ({ cards, deleteCardAction, categories, sort }) => {
+  let categoriesObj = {};
+
+  categories.map((category) => (categoriesObj[category] = []));
+  cards.map((card) => categoriesObj[card.category].push(card));
+
+  console.log(categoriesObj);
+
+  return (
+    <CardsTree
+      categories={categories}
+      categoriesObj={categoriesObj}
+      deleteCardAction={deleteCardAction}
+      sort={sort}
+    />
+  );
 };
 
 const Cards = (props) => {
-  const { cardsData, getCardsAction, isLoading, deleteCardAction } = props;
+  const { cardsData, getCardsAction, deleteCardAction } = props;
 
   const [page, editPage] = useState(0);
+  const [width, setWidth] = useState(window.innerWidth);
 
-  const countItemsInPage = 20;
-  const pages = Math.ceil(cardsData.cards.length / countItemsInPage) - 1;
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  });
 
   useEffect(() => {
     getCardsAction();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  if (cardsData.isLoading) {
+    return (
+      <main>
+        <div className="loader">
+          <img src={spinner} alt="spinner" />
+        </div>
+      </main>
+    );
+  }
+
   const handlePage = (page) => {
     animateScroll.scrollToTop();
     editPage(page);
   };
 
-  if (isLoading) {
-    return <></>;
+  const countItemsInPage = Math.floor(width / 290) * 4;
+  const pages = Math.ceil(cardsData.cards.length / countItemsInPage) - 1;
+
+  if (page > pages && pages !== -1) {
+    editPage(pages);
   }
+
+  console.log("page", page);
 
   console.log(cardsData);
   return (
     <main>
-      <div className="collection">
-        <CardsCollection
-          cards={cardsData.cards}
-          page={page}
-          countItems={countItemsInPage}
-          deleteCardAction={deleteCardAction}
-        />
+      <div className={`collection ${!cardsData.graphic && "tree"}`}>
+        {cardsData.graphic ? (
+          <CardsCollectionGraphic
+            cards={cardsData.cards}
+            page={page}
+            countItems={countItemsInPage}
+            deleteCardAction={deleteCardAction}
+          />
+        ) : (
+          <CardsCollectionTree
+            cards={cardsData.cards}
+            deleteCardAction={deleteCardAction}
+            categories={cardsData.categories}
+            sort={cardsData.sort}
+          />
+        )}
       </div>
 
-      <Pagination page={page} pages={pages} handlePage={handlePage} />
+      {cardsData.graphic && (
+        <Pagination page={page} pages={pages} handlePage={handlePage} />
+      )}
     </main>
   );
 };

@@ -1,0 +1,23 @@
+main li {
+  cursor: pointer;
+  list-style-type: none;
+  /* border-left: 1px solid rgb(173, 173, 173); */
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+main ul, main li {
+  padding-left: 0;
+  margin-left: 7px;
+  margin-bottom: 7px;
+}
+
+main ul {
+  border-left: 1px solid rgb(173, 173, 173);
+}
+
+main ul.container {
+  border: none;
+}

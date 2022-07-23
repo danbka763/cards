@@ -9,15 +9,22 @@ header {
   align-items: center;
 }
 
-header>div.container-button, header>div.container-sort {
+header>div.container-button, header>div.container-sort,
+header div.container-performance {
   height: 100%;
   display: flex;
   align-items: center;
   margin: 0 45px;
 }
 
+header>div.container-button, header div.radio-buttons {
+  display: flex;
+  align-items: center;
+}
+
 header>div.container-button button,
-header>div.container-sort>div.sort {
+header>div.container-sort div.sort,
+header div.container-performance div.performance {
   -moz-user-select: none;
   -khtml-user-select: none;
   user-select: none;
@@ -30,16 +37,147 @@ header>div.container-button button {
   color: white;
   padding: 5px 15px;
   cursor: pointer;
+  margin-left: 15px;
 }
 header>div.container-button button:disabled {
   cursor: default;
 }
 
-header>div.container-sort>div.sort,
-header>div.container-sort input {
+header>div.container-sort div.sort,
+header div.container-performance div.performance,
+header input {
   cursor: pointer;
 }
 
-header>div.container-sort>div.sort {
+header>div.container-sort div.sort,
+header div.container-performance div.performance {
   margin-left: 15px;
+}
+
+header div.drop-down {
+  display: none;
+}
+
+header i {
+  border: solid white;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 5px;
+  position: relative;
+}
+
+header i.right {
+  margin-left: 3px;
+  top: -1px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+header i.down {
+  top: -3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+header li {
+  list-style-type: none;
+}
+
+header li, header ul {
+  margin: 0;
+  padding: 0;
+}
+
+header li {
+  cursor: pointer;
+}
+
+header ul.container-drop {
+  background-color: white;
+  border: solid 1px rgb(204, 204, 204);
+  border-radius: 5px;
+  padding: 7px;
+  color: black;
+  position: absolute;
+}
+
+header>div.container-performance {
+  display: none;
+}
+
+
+@media screen and (max-width: 1391px) {
+  header>div.container-sort>div.sort,
+  header div.container-performance div.performance {
+    margin-left: 5px;
+  }
+
+  header>div.container-button, header>div.container-sort {
+    margin: 0 15px 0 45px;
+  }
+  header div.container-performance {
+    margin: 0 15px 0 0;
+  }
+}
+
+
+@media screen and (max-width: 1236px) {
+  header>div.container-sort {
+    display: block;
+  }
+
+  header>div.container-sort div.sort {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+
+  header>div.container-button div.container-performance {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  header div.radio-buttons,
+  header p.header-radio-buttons {
+    display: none;
+  }
+
+  header div.drop-down {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 612px) {
+  header {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  header div.drop-down {
+    display: block;
+  }
+
+  header>div.container-sort, header div.container-performance {
+    display: block;
+    height: auto;
+  }
+
+  header>div.container-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  header>div.container-button button {
+    margin: 10px 0;
+  }
+
+  header>div.container-button div.container-performance {
+    display: none;
+  }
+
+  header>div.container-sort, header>div.container-performance, header>div.container-button {
+    margin: 5px 20px 0;
+  }
 }

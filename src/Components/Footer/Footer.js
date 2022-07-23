@@ -1,12 +1,12 @@
 import React from "react";
-import './Footer.css'
+import "./Footer.css";
 
 const Footer = (props) => {
-  return ( 
+  return (
     <footer>
-      Задание для устройства на работу в Элекард на позицию frontend разработчик
+      Задание для трудоустройства в Элекард на позицию frontend разработчик
     </footer>
-  )
+  );
 };
 
 export default Footer;

@@ -1,7 +1,6 @@
 const variable = ["category", "timestamp", "image", "filesize"];
 
 export const cardsSort = (sortVariant, cards) => {
-
   switch (sortVariant) {
     case 0: {
       return cards.sort((card1, card2) =>
@@ -31,7 +30,7 @@ export const cardsSort = (sortVariant, cards) => {
       );
     }
     default: {
-      return []
+      return [];
     }
   }
 };
