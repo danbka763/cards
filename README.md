@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+## Задача на собеседование в компанию
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Задача
+- Сделать страницу с шапкой и футером во всю ширину страницы, которые при прокрутке остаются на месте;
+- Страница должна отображать контент в двух видах: в виде карточек и в виде древовидного списка, повторяющего структуру входных данных. Переключение между видами радиобатоном.
 
-## Available Scripts
+## Реализация
+Веб-приложение написано на React с применением Redux и Saga.
+Для запуска проекта - в консоли, находясь в корне проекта, написать:  
+- ``` npm install ``` 
+- ``` npm start ``` 
 
-In the project directory, you can run:
+## Реализованы следующие функции
+- Возможность закрывать крестиком карточки. После закрытия браузера информация о закрытых этим пользователем карточек сохраняется. Возможность сброса и возврата к полному набору карточек;
+- Предусмотренна сортировка по категории, по дате, по названию, по размеру файла.
+- Переключение сортировки радиобатонами;
+- Пагинация;
+- При получении данных отображается индикатор процесса загрузки;
+- Реализован вывод данных в виде древовидного списка. Переключение между карточками и древовидным списком осуществляется при помощи радиобатона.
 
-### `npm start`
+## Затраченное время на выполнение задания
+По таймтрекеру, на выполнение задачи было затрачено 12 часов 35 минут суммарно.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Скриншот из таймтрекера](https://s120vla.storage.yandex.net/rdisk/edf47ea971ac87873efd400b3283a1dce28eea37498a3be2610f9c44003864a2/62dbc797/xnAyfydo5Isvlf_2ppBIDKL25kjcS9erA7KZ_rWViRmSBlXrzG_oiEtXt8ZzMN9z5TNvajGuk7zWHvQr4zMUgA==?uid=0&filename=2022-07-23_13-01-36.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&fsize=102025&hid=967ea5851137677b2933592cd8225aed&media_type=image&tknv=v2&etag=637fa256614816a020ba188ebad10e18&rtoken=ySjW0OA9qr2T&force_default=no&ycrid=na-25b2652e337d8c7b2f7eceb7675ea933-downloader21f&ts=5e476123fd3c0&s=0c9b94f33b4a47fddaf343dfee8f3eb7ce855e7497da88b2125917ea16c8f2d7&pb=U2FsdGVkX1-JXFJfzVrNYBwVtoGjo6zYv_b574RNU4pVcfIx9c30kziILYQHhbTbcQ8qrq32SYeltYVFOBgk_SOnXmRbfOX9UuG-4J94gcs)
